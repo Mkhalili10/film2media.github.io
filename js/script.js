@@ -19,6 +19,7 @@ cover.addEventListener("touchstart", function (event) {
 
 cover.addEventListener("touchend", function(event) {
     const endX = event.changedTouches[0].clientX
+    alert("touch")
 
     if(endX - startX > 50) {
         last++
