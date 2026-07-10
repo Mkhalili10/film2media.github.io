@@ -13,6 +13,8 @@ let last = 0
 let cover_flage = 0
 let startX = 0
 
+alert("start")
+
 cover.addEventListener("touchstart", function (event) {
     startX = event.touches[0].clientX
 })
