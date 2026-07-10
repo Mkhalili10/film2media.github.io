@@ -10,7 +10,7 @@
         margin: 0;
 
         border-top: 0.5px solid rgba(255, 255, 255, 0.251);
-        z-index: 1200;
+        z-index: 2500;
         background-color: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(5px);
     }
@@ -83,11 +83,11 @@
         flex-direction: column;
         transition: all 0.4s linear;
 
-        width: 50%;
+        width: 65%;
         position: fixed;
-        top: 0.1rem;
-        bottom: 0.1rem;
-        right: -60%;
+        top: 0;
+        bottom: 0;
+        right: -70%;
         z-index: 1100;
     }
 
@@ -107,7 +107,7 @@
 
 @media only screen and (max-width: 576px) {
     .menu2 {
-        width: 55%;
+        width: 70%;
     }
 
     .janrs_items .t {
@@ -117,7 +117,11 @@
     }
 
     .janrs_sub_items {
-        font-size: 11px;
+        font-size: 16px;
+    }
+
+    .janrs_sub_items p:nth-child(1) {
+        margin-left: 0.5rem;
     }
 
     .menu_items a , .menu_items span {
@@ -159,8 +163,10 @@
     }
 
     .cover_images {
+        width: 100%;
+        height: 900px;
         -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0.1) 80%, transparent 92%);
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0.1) 80%, transparent 92%);
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.2) 45%, rgba(0, 0, 0, 0.1) 50%, transparent 67%);
     }
 
     .detail_container {
@@ -186,19 +192,15 @@
 @media only screen and (max-width: 410px) {
 
     /* phone menu -------------------------- */
-    .menu_close {
-        font-size: 16px;
-        top: 0.6rem
-    }
-
     .menu2 {
-        width: 63%;
+        width: 75%;
         /* height: 135vh; */
     }
 
     .janrs_items .t {
-        font-size: 15px;
-        padding: 0.7rem 0;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 0.5rem 0;
         margin: 0.2rem 0;
     }
 
@@ -208,6 +210,7 @@
 
     .janrs_sub_items {
         width: 45%;
+        font-size: 16px;
     }
 
     .janrs_sub_items p:nth-child(1) {
@@ -294,7 +297,12 @@
 
 @media only screen and (max-width: 360px) {
     .menu2 {
-        width: 73%;
+        width: 80%;
+    }
+
+    .janrs_sub_items {
+        font-size: 14px;
+        font-weight: bold;
     }
 
     .menu_items a i, .menu_items i {

@@ -12,27 +12,30 @@ let arr = [-200, -100, 0, 100, 200]
 let last = 0
 let cover_flage = 0
 
-setInterval(function () {
-    if(window.innerWidth < 410 && window.innerHeight < 720) {
-        header_content.style.height = '450px'
-        cover.style.header_content = '430px'
-        detail.style.top = '73%'
-    }
-    else if (window.innerWidth > 410 && window.innerWidth <= 576) {
-        header_content.style.height = '600px'
-        cover.style.header_content = '580px'
-        detail.style.top = '78%'
-    }
-    else if (window.innerWidth > 576 && window.innerWidth < 1200) {
-        header_content.style.height = '440px'
-        cover.style.header_content = '457px'
-        detail.style.top = '14%'
-    }
-    else if (window.innerWidth >= 1200 && window.innerWidth < 1440) {
-        header_content.style.height = '460px'
-        cover.style.header_content = '447px'
-    }
-}, 500)
+// setInterval(function () {
+//     if(window.innerWidth < 410 && window.innerHeight < 720) {
+//         header_content.style.height = '450px'
+//         cover.style.header_content = '430px'
+//         detail.style.top = '73%'
+//     }
+//     else if (window.innerWidth > 410 && window.innerWidth <= 576) {
+//         header_content.style.height = '600px'
+//         cover.style.header_content = '580px'
+//         detail.style.top = '78%'
+
+//         // cover.firstElementChild.src = "../src/formposter.jpg"
+//         // console.log('change')
+//     }
+//     else if (window.innerWidth > 576 && window.innerWidth < 1200) {
+//         header_content.style.height = '440px'
+//         cover.style.header_content = '457px'
+//         detail.style.top = '14%'
+//     }
+//     else if (window.innerWidth >= 1200 && window.innerWidth < 1440) {
+//         header_content.style.height = '460px'
+//         cover.style.header_content = '447px'
+//     }
+// }, 500)
 
 setInterval(function () {
     if(last > 0)
@@ -68,7 +71,7 @@ setInterval(function () {
             circle_items_flage[i] = 0
         }
     }
-}, 2000)
+}, 5000)
 
 show_img.forEach(function(item, index) {
     item.addEventListener("click", function () {
@@ -282,9 +285,9 @@ part.forEach(function(item, index) {
 
         if(part_info_falge[index] == 0) {
             if(index == 0)
-                part_info[index].style.height = "5rem"
+                part_info[index].style.height = "6rem"
             else 
-                part_info[index].style.height = "16rem"
+                part_info[index].style.height = "19rem"
     
             part_info_falge[index] = 1
         }
@@ -293,15 +296,15 @@ part.forEach(function(item, index) {
             part_info_falge[index] = 0
         }
 
-        for(let i=0; i<3; i++) {
-            if(i!=index) {
-                part_info[i].style.height = "0"
-                part_info_falge[i] = 0
+        // for(let i=0; i<3; i++) {
+        //     if(i!=index) {
+        //         part_info[i].style.height = "0"
+        //         part_info_falge[i] = 0
 
-                part[i].firstElementChild.style.background = "rgb(14, 28, 14)"
-                part[i].firstElementChild.style.color = "greenyellow"
-            }
-        }
+        //         part[i].firstElementChild.style.background = "rgb(14, 28, 14)"
+        //         part[i].firstElementChild.style.color = "greenyellow"
+        //     }
+        // }
     })
 })
 
@@ -323,7 +326,7 @@ daste.forEach(function (item) {
             }
             else {
                 if(window.innerWidth > 410) 
-                    menu2.style.right = '-60%'
+                    menu2.style.right = '-70%'
                 else
                     menu2.style.right = '-80%'
                 menu_phone_flage = 0
@@ -344,7 +347,7 @@ daste.forEach(function (item) {
 
 window.addEventListener("resize", function () {
     if(window.innerWidth > 410) 
-        menu2.style.right = '-60%'
+        menu2.style.right = '-70%'
     else
         menu2.style.right = '-80%'
     menu_phone_flage = 0
@@ -352,7 +355,7 @@ window.addEventListener("resize", function () {
 
 close.addEventListener("click", function () {
     if(window.innerWidth > 410) 
-        menu2.style.right = '-60%'
+        menu2.style.right = '-70%'
     else
         menu2.style.right = '-80%'
     menu_phone_flage = 0
