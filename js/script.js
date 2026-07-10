@@ -13,15 +13,12 @@ let last = 0
 let cover_flage = 0
 let startX = 0
 
-alert("start")
-
 cover.addEventListener("touchstart", function (event) {
     startX = event.touches[0].clientX
 })
 
 cover.addEventListener("touchend", function(event) {
     const endX = event.changedTouches[0].clientX
-    alert("touch")
 
     if(endX - startX > 50) {
         last++
@@ -87,7 +84,7 @@ setInterval(function () {
             circle_items_flage[i] = 0
         }
     }
-}, 5000)
+}, 8000)
 
 show_img.forEach(function(item, index) {
     item.addEventListener("click", function () {
