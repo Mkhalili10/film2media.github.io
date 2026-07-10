@@ -11,31 +11,44 @@ let circle_items_flage = [1, 0, 0, 0, 0]
 let arr = [-200, -100, 0, 100, 200]
 let last = 0
 let cover_flage = 0
+let startX = 0
 
-// setInterval(function () {
-//     if(window.innerWidth < 410 && window.innerHeight < 720) {
-//         header_content.style.height = '450px'
-//         cover.style.header_content = '430px'
-//         detail.style.top = '73%'
-//     }
-//     else if (window.innerWidth > 410 && window.innerWidth <= 576) {
-//         header_content.style.height = '600px'
-//         cover.style.header_content = '580px'
-//         detail.style.top = '78%'
+cover.addEventListener("touchstart", function (event) {
+    startX = event.touches[0].clientX
+})
 
-//         // cover.firstElementChild.src = "../src/formposter.jpg"
-//         // console.log('change')
-//     }
-//     else if (window.innerWidth > 576 && window.innerWidth < 1200) {
-//         header_content.style.height = '440px'
-//         cover.style.header_content = '457px'
-//         detail.style.top = '14%'
-//     }
-//     else if (window.innerWidth >= 1200 && window.innerWidth < 1440) {
-//         header_content.style.height = '460px'
-//         cover.style.header_content = '447px'
-//     }
-// }, 500)
+cover.addEventListener("touchend", function(event) {
+    const endX = event.changedTouches[0].clientX
+
+    if(endX - startX > 50) {
+        last++
+    }
+    else if (startX - endX > 50) {
+        last--
+    }
+
+    if(last >= 5 || last <= -1) 
+        return 0
+    
+    cover.style.transform = 'translateX(' + arr[last] + '%)'
+    detail.style.transform = 'translateX(' + arr[last] + '%)'
+
+    if(last > 0)
+        detail_items[last-1].style.paddingLeft = '4rem'
+
+    circle_items[last].style.width = '30px'
+    circle_items[last].style.borderRadius = '0.5rem'
+    circle_items_flage[last] = 1
+
+    for(let i=0; i<5; i++) {
+        if(i!=last) {
+            circle_items[i].style.width = '12px'
+            circle_items[i].style.borderRadius = '50%' 
+            circle_items_flage[i] = 0
+        }
+    }
+
+})
 
 setInterval(function () {
     if(last > 0)
@@ -45,11 +58,11 @@ setInterval(function () {
     else 
         last--
 
-    if(last == 5) {
+    if(last >= 5) {
         last = 4
         cover_flage = 1
     }
-    else if (last == -1) {
+    else if (last <= -1) {
         last = 0
         cover_flage = 0
     }
@@ -280,9 +293,6 @@ let part_info_falge = [0,0,0]
 
 part.forEach(function(item, index) {
     item.addEventListener("click", function () {
-        part[index].firstElementChild.style.background = "greenyellow"
-        part[index].firstElementChild.style.color = "rgb(14, 28, 14)"
-
         if(part_info_falge[index] == 0) {
             if(index == 0)
                 part_info[index].style.height = "6rem"
@@ -290,21 +300,15 @@ part.forEach(function(item, index) {
                 part_info[index].style.height = "19rem"
     
             part_info_falge[index] = 1
+            part[index].firstElementChild.style.background = "greenyellow"
+            part[index].firstElementChild.style.color = "rgb(14, 28, 14)"
         }
         else {
             part_info[index].style.height = "0"
             part_info_falge[index] = 0
+            part[i].firstElementChild.style.background = "rgb(14, 28, 14)"
+            part[i].firstElementChild.style.color = "greenyellow"
         }
-
-        // for(let i=0; i<3; i++) {
-        //     if(i!=index) {
-        //         part_info[i].style.height = "0"
-        //         part_info_falge[i] = 0
-
-        //         part[i].firstElementChild.style.background = "rgb(14, 28, 14)"
-        //         part[i].firstElementChild.style.color = "greenyellow"
-        //     }
-        // }
     })
 })
 
@@ -360,8 +364,3 @@ close.addEventListener("click", function () {
         menu2.style.right = '-80%'
     menu_phone_flage = 0
 })
-
-
-
-
-
