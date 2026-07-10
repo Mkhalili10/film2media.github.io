@@ -20,6 +20,9 @@ cover.addEventListener("touchstart", function (event) {
 cover.addEventListener("touchend", function(event) {
     const endX = event.changedTouches[0].clientX
 
+    if (last > 0) 
+        detail_items[last-1].style.paddingLeft = '0'   
+    
     if(endX - startX > 50) {
         last++
     }
